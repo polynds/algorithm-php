@@ -1,0 +1,30 @@
+{
+  "name": "mx/algorithm-php",
+  "type": "project",
+  "authors": [
+    {
+      "name": "mx",
+      "email": "2910508410@qq.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.0",
+    "phpstan/phpstan": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Base\\": "Base/",
+      "LinkedList\\": "LinkedList/",
+      "Sort\\": "Sort/",
+      "ArrayStack\\": "ArrayStack/",
+      "LoopQueue\\": "LoopQueue/",
+      "BST\\": "BST/",
+      "Observer\\": "Observer/"
+    }
+  },
+  "description": ""
+}
