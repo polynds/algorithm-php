@@ -9,21 +9,17 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "php": ">=7.4"
+    "php": ">=7.4",
+    "phpunit/phpunit": "^9.5"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^3.0",
-    "phpstan/phpstan": "^1.0"
+    "phpstan/phpstan": "^1.0",
+    "symfony/var-dumper": "^5.2"
   },
   "autoload": {
     "psr-4": {
-      "Base\\": "Base/",
-      "LinkedList\\": "LinkedList/",
-      "Sort\\": "Sort/",
-      "ArrayStack\\": "ArrayStack/",
-      "LoopQueue\\": "LoopQueue/",
-      "BST\\": "BST/",
-      "Observer\\": "Observer/"
+      "AlgorithmPHP\\": "src/"
     }
   },
   "description": ""

@@ -1,12 +1,16 @@
 <?php
 
-namespace LinkedList;
+declare(strict_types=1);
+/**
+ * happy coding!!!
+ */
+namespace AlgorithmPHP\LinkedList;
 
 class LinkedList
 {
+    /** @var Node */
+    private $dunmyHead;
 
-    /** @var Node $dunmyHead */
-    private $dunmyHead = null;
     private $size = 0;
 
     public function __construct()
@@ -18,12 +22,13 @@ class LinkedList
     public function add(int $index, $value)
     {
         $prev = $this->dunmyHead;
-        for ($i = 0; $i < $index; $i++)
+        for ($i = 0; $i < $index; ++$i) {
             $prev = $prev->next;
+        }
 
         $newNode = new Node($value, $prev->next);
         $prev->next = $newNode;
-        $this->size++;
+        ++$this->size;
         return $newNode;
     }
 
@@ -39,17 +44,19 @@ class LinkedList
 
     public function remove(int $index)
     {
-        if ($index > $this->size || $index < 0)
-            throw new \Exception("索引越界了,size:".$this->size.'-$index:'.$index);
+        if ($index > $this->size || $index < 0) {
+            throw new \Exception('索引越界了,size:' . $this->size . '-$index:' . $index);
+        }
 
         $prev = $this->dunmyHead;
-        for ($i=0;$i<$index;$i++)
+        for ($i = 0; $i < $index; ++$i) {
             $prev = $prev->next;
+        }
 
         $retNode = $prev->next;
         $prev->next = $retNode->next;
         $retNode->next = null;
-        $this->size--;
+        --$this->size;
         return $retNode->value;
     }
 
@@ -65,53 +72,51 @@ class LinkedList
 
     public function set(int $index, $value)
     {
-        if ($index > $this->size || $index <= 0)
-            throw new \Exception("索引越界了");
+        if ($index > $this->size || $index <= 0) {
+            throw new \Exception('索引越界了');
+        }
 
         $prev = $this->dunmyHead;
-        for ($i=0;$i<$index;$i++)
+        for ($i = 0; $i < $index; ++$i) {
             $prev = $prev->next;
+        }
 
         $cur = $prev->next;
         $cur->value = $value;
     }
 
-
     public function get(int $index)
     {
-        if ($index > $this->size || $index <= 0)
-            throw new \Exception("索引越界了");
+        if ($index > $this->size || $index <= 0) {
+            throw new \Exception('索引越界了');
+        }
 
         $prev = $this->dunmyHead;
-        for ($i=0;$i<$index;$i++)
+        for ($i = 0; $i < $index; ++$i) {
             $prev = $prev->next;
+        }
         return $prev->next->value;
     }
-
-
 
     public function toString()
     {
         $str = '';
         $cur = $this->dunmyHead;
-        while ($cur !== null){
-            if($cur->value !== null)
-                $str.= $cur->value.'->';
+        while ($cur !== null) {
+            if ($cur->value !== null) {
+                $str .= $cur->value . '->';
+            }
             $cur = $cur->next;
         }
-        if(!empty($str))
+        if (! empty($str)) {
             $str .= 'null';
+        }
 
-        echo $str.PHP_EOL;
+        echo $str . PHP_EOL;
     }
 
-    /**
-     * @return int
-     */
     public function getSize(): int
     {
         return $this->size;
     }
-
-
 }

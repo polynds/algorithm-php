@@ -1,12 +1,16 @@
 <?php
 
-namespace BST;
+declare(strict_types=1);
+/**
+ * happy coding!!!
+ */
+namespace AlgorithmPHP\BST;
 
 class BST
 {
-
-    /** @var Node $node */
+    /** @var Node */
     private $node;
+
     private $size;
 
     public function __construct()
@@ -25,31 +29,30 @@ class BST
         return $this->size == 0;
     }
 
-
     public function add($value)
     {
         $this->node = $this->addNode($this->node, $value);
     }
 
-    private function addNode($node, $value)
-    {
-        if ($node == null) {
-            $this->size++;
-            return new Node($value);
-        }
-
-        if ($node->value > $value)
-            $node->left = $this->addNode($node->left, $value);
-        else if ($node->value < $value)
-            $node->right = $this->addNode($node->right, $value);
-
-        return $node;
-    }
-
-
     public function toString()
     {
         $this->traverse($this->node);
+    }
+
+    private function addNode($node, $value)
+    {
+        if ($node == null) {
+            ++$this->size;
+            return new Node($value);
+        }
+
+        if ($node->value > $value) {
+            $node->left = $this->addNode($node->left, $value);
+        } elseif ($node->value < $value) {
+            $node->right = $this->addNode($node->right, $value);
+        }
+
+        return $node;
     }
 
     private function traverse($tidyNode)
@@ -62,7 +65,5 @@ class BST
         echo $tidyNode->value . PHP_EOL;
         $this->traverse($tidyNode->left);
         $this->traverse($tidyNode->right);
-
     }
-
 }

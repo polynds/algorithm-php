@@ -1,30 +1,35 @@
 <?php
 
-namespace ArrayStack;
+declare(strict_types=1);
+/**
+ * happy coding!!!
+ */
+namespace AlgorithmPHP\ArrayStack;
 
 class Stack
 {
-
     public static function find(string $str)
     {
         $stack = [];
-        for ($i = 0, $iMax = strlen($str); $i < $iMax; $i++) {
+        for ($i = 0, $iMax = strlen($str); $i < $iMax; ++$i) {
             if (in_array($str[$i], ['{', '(', '['])) {
                 $stack[] = $str[$i];
             } else {
-                if (empty($stack))
+                if (empty($stack)) {
                     return false;
+                }
                 $s = array_pop($stack);
-                if ($str[$i] === '{' && $s !== '}')
+                if ($str[$i] === '{' && $s !== '}') {
                     return false;
-                if ($str[$i] === '(' && $s !== ')')
+                }
+                if ($str[$i] === '(' && $s !== ')') {
                     return false;
-                if ($str[$i] === '[' && $s !== ']')
+                }
+                if ($str[$i] === '[' && $s !== ']') {
                     return false;
-
+                }
             }
         }
         return empty($stack);
     }
-
 }

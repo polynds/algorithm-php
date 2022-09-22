@@ -1,13 +1,17 @@
 <?php
 
-namespace LinkedList;
+declare(strict_types=1);
+/**
+ * happy coding!!!
+ */
+namespace AlgorithmPHP\LinkedList;
 
-
-class LinkedLIstQueue implements Queue
+class LinkedListQueue implements Queue
 {
-
     private $head;
+
     private $tail;
+
     private $size;
 
     public function __construct()
@@ -16,7 +20,6 @@ class LinkedLIstQueue implements Queue
         $this->tail = null;
         $this->size = 0;
     }
-
 
     public function enQueue($vaule)
     {
@@ -27,7 +30,7 @@ class LinkedLIstQueue implements Queue
             $this->tail->next = new Node($vaule);
             $this->tail = $this->tail->next;
         }
-        $this->size++;
+        ++$this->size;
     }
 
     public function deQueue()
@@ -38,7 +41,7 @@ class LinkedLIstQueue implements Queue
         if ($this->head == null) {
             $this->tail = null;
         }
-        $this->size--;
+        --$this->size;
     }
 
     public function isEmpty()
@@ -60,14 +63,16 @@ class LinkedLIstQueue implements Queue
     {
         $str = '';
         $cur = $this->head;
-        while ($cur !== null){
-            if($cur->value !== null)
-                $str.= $cur->value.'->';
+        while ($cur !== null) {
+            if ($cur->value !== null) {
+                $str .= $cur->value . '->';
+            }
             $cur = $cur->next;
         }
-        if(!empty($str))
+        if (! empty($str)) {
             $str .= 'null';
+        }
 
-        echo $str.PHP_EOL;
+        echo $str . PHP_EOL;
     }
 }

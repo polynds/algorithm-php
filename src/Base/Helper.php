@@ -1,12 +1,13 @@
 <?php
 
-namespace Base;
-
+declare(strict_types=1);
+/**
+ * happy coding!!!
+ */
+namespace AlgorithmPHP\Base;
 
 class Helper
 {
-
-
     public static function printData($arr)
     {
         $count = count($arr);
@@ -28,8 +29,8 @@ class Helper
         return $array;
     }
 
-    public static function vdump($data){
+    public static function vdump($data)
+    {
         var_dump([$data]);
     }
-
 }

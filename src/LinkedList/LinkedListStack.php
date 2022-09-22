@@ -1,9 +1,13 @@
 <?php
 
-namespace LinkedList;
+declare(strict_types=1);
+/**
+ * happy coding!!!
+ */
+namespace AlgorithmPHP\LinkedList;
+
 class LinkedListStack implements Stack
 {
-
     private $stack;
 
     public function __construct()
