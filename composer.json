@@ -7,7 +7,6 @@
       "email": "2910508410@qq.com"
     }
   ],
-  "minimum-stability": "dev",
   "require": {
     "php": ">=7.4",
     "phpunit/phpunit": "^9.5"
